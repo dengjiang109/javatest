@@ -14,7 +14,7 @@
 
 <html>
 <head>
-    <title>错误界面</title>
+    <title>错误界面1</title>
     <base href="<%=basePath %>" />
 </head>
 <body>
