@@ -49,6 +49,7 @@ public class Backstage extends HttpServlet {
                    user.setSex(sex1);
                    userlist.add(user);
                }
+               response.getWriter().println(userlist);
 
 
             } catch (SQLException e) {

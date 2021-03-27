@@ -51,12 +51,15 @@ public class register extends HttpServlet {
 
         }
 
-        if (nam1!=null||"333".equals(pass)){
+        if (nam1!=null && "333".equals(pass)){
             User user=new User();
             user.setName(nam1);
             request.getSession().setAttribute("user",user);
 
             response.getWriter().print("<a href=/test/backstage.jsp>退出</a>");
+        }else {
+            response.sendRedirect("error3.jsp");
+
         }
 
 

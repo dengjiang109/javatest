@@ -14,15 +14,24 @@ import java.sql.*;
 @WebServlet(name = "Servlet")
 public class Login extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
         request.setCharacterEncoding("utf-8");
         System.out.println("欢迎进入这个系统");
         String name=request.getParameter("name");
-        System.out.println(name);
+
+        if(name==""){
+            response.sendRedirect("error2.jsp");
+
+
+        }
+
+        System.out.println(name+"==================");
         String brithday=request.getParameter("brithday");
 
         if (brithday.length()!=10){
             response.sendRedirect("error.jsp");
         }
+
 
 
 
@@ -35,7 +44,7 @@ public class Login extends HttpServlet {
 
         String sql="insert into tbl_test(name,brithday,sex,remarks,tel,occupation) ";
         String a="values( ";
-        String b="'"+name+"',"+brithday+",'"+sex+"',"+remarks+","+tel+","+occupation+")";
+        String b="'"+name+"',"+brithday+",'"+sex+"','"+remarks+"',"+tel+",'"+occupation+"')";
         String c= sql.concat(a).concat(b);
         System.out.println(c);
 
@@ -81,6 +90,8 @@ public class Login extends HttpServlet {
         user.setTel(tel);
         user.setRemarks(remarks);
         System.out.println(user);
+
+        response.sendRedirect("index2.jsp");
 
 
 
